@@ -50,9 +50,9 @@ def terfogat():
         if not k :
             mezo4.delete(0, END)
             mezo4.insert(0, str()+'szamadatot kell megadni')
-        a=eval(mezo1.get())
-        b=eval(mezo2.get())
-        c=eval(mezo3.get())
+        a=float(mezo1.get())
+        b=float(mezo2.get())
+        c=float(mezo3.get())
         terfogat= a*b*c
         if a<=0 or b<=0 or c<=0:
             mezo4. insert(0, str()+' nem lehet ')
