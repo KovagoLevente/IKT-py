@@ -1,4 +1,5 @@
 from tkinter import*
+import math
 def nevjegy():
     abl2=Toplevel(foablak)
     uz2=Message(abl2,text='készitete:Kővágó Levente\nBaja\n2022.04.06', )
@@ -6,7 +7,6 @@ def nevjegy():
     uz2.pack()
     gomb2.pack()
     abl2.pack()
-
 def felszin():
     k='' 
     def szam():
@@ -18,6 +18,7 @@ def felszin():
         c=float(mezo3.get())
         felszin= 2*(a*b+a*c+c*b)
         if a<=0 or b<=0 or c<=0:
+            mezo4.delete(0, END)
             mezo4. insert(0, str()+' nem lehet ')
         else:
             mezo4.delete(0, END)
@@ -43,6 +44,8 @@ def felszin():
     mezo2.grid(row=2 ,column= 2)
     mezo3.grid(row=3 ,column= 2)
     mezo4.grid(row=5 ,column= 2)
+    gomb2=Button(abl3, text='Kilépés' , command=abl3.destroy)
+    gomb2.grid(row=6 ,column= 2)
     abl3.mainloop()
 def terfogat():
     k='' 
@@ -55,6 +58,7 @@ def terfogat():
         c=float(mezo3.get())
         terfogat= a*b*c
         if a<=0 or b<=0 or c<=0:
+            mezo4.delete(0, END)
             mezo4. insert(0, str()+' nem lehet ')
         else:
             mezo4.delete(0, END)
@@ -79,9 +83,83 @@ def terfogat():
     mezo2.grid(row=2 ,column= 2)
     mezo3.grid(row=3 ,column= 2)
     mezo4.grid(row=5 ,column= 2)
+    gomb2=Button(abl3, text='Kilépés' , command=abl3.destroy)
+    gomb2.grid(row=6 ,column= 2)
     abl3.mainloop()
+def hterfogat():
+    k='' 
+    def szam():
+        if not k :
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+'szamadatot kell megadni')
+        m=float(mezo1.get())
+        r=float(mezo2.get())
+        hterfogat = round (math.pi * r * r * m, 2)
+        if m<=0 or r<=0 :
+            mezo4.delete(0, END)
+            mezo4. insert(0, str()+' nem lehet ')
+        else:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str(hterfogat))
+    abl4= Toplevel(foablak)
+    abl4.title('Terfogat')
+    szoveg1=Label(abl4, text='m:')
+    szoveg2=Label(abl4, text='r:')
+    
+    szoveg4=Label(abl4, text='Eredmény:')
+    gomb1=Button(abl4, text='Szamitás', command=szam)
+    mezo1= Entry(abl4)
+    mezo2= Entry(abl4)
+    mezo4= Entry(abl4)
+    szoveg1.grid(row=1)
+    szoveg2.grid(row=2)
+    szoveg4.grid(row=4)
+    gomb1.grid(row=3 ,column= 2)
+    mezo1.grid(row=1 ,column= 2)
+    mezo2.grid(row=2 ,column= 2)
+    mezo4.grid(row=4 ,column= 2)
+    gomb2=Button(abl4, text='Kilépés' , command=abl4.destroy)
+    gomb2.grid(row=5 ,column= 2)
+    abl4.mainloop()
+def hfelszin():
+    k='' 
+    def szam():
+        if not k :
+            mezo4.delete(0, END)
+            mezo4.insert(0, str()+'szamadatot kell megadni')
+        m=float(mezo1.get())
+        r=float(mezo2.get())
+        hfelszin = round (2*math.pi*r*(r+m), 2)
+        if m<=0 or r<=0 :
+            mezo4.delete(0, END)
+            mezo4. insert(0, str()+' nem lehet ')
+        else:
+            mezo4.delete(0, END)
+            mezo4. insert(0, str(hfelszin))
+    abl4= Toplevel(foablak)
+    abl4.title('Felszin')
+    szoveg1=Label(abl4, text='m:')
+    szoveg2=Label(abl4, text='r:')
+    
+    szoveg4=Label(abl4, text='Eredmény:')
+    gomb1=Button(abl4, text='Szamitás', command=szam)
+    mezo1= Entry(abl4)
+    mezo2= Entry(abl4)
+    mezo4= Entry(abl4)
+    szoveg1.grid(row=1)
+    szoveg2.grid(row=2)
+    szoveg4.grid(row=4)
+    gomb1.grid(row=3 ,column= 2)
+    mezo1.grid(row=1 ,column= 2)
+    mezo2.grid(row=2 ,column= 2)
+    mezo4.grid(row=4 ,column= 2)
+    gomb2=Button(abl4, text='Kilépés' , command=abl4.destroy)
+    gomb2.grid(row=5 ,column= 2)
+    abl4.mainloop()
+
+
 foablak=Tk()
-foablak.title('Téglatest')
+foablak.title('Téglatest és Henger')
 foablak.minsize(width=300, height=300)
 
 menusor=Frame(foablak)
@@ -89,15 +167,21 @@ menusor.pack(side=TOP , fill=X)
 menu1=Menubutton(menusor, text='Adat', )
 menu1.pack(side=LEFT)
 fajl=Menu(menu1)
-fajl.add_command(label='nevjegy' ,command= nevjegy, )
-fajl.add_command(label='Kilápás' ,command= foablak.destroy, )
+fajl.add_command(label='Nevjegy' ,command= nevjegy, )
+fajl.add_command(label='Kilépés' ,command= foablak.destroy, )
 menu1.config(menu=fajl)
 
-
-menu2=Menubutton(menusor, text='Térfogat', )
+menu2=Menubutton(menusor, text='Téglatest', )
 menu2.pack(side=LEFT)
 teglatest=Menu(menu2)
-teglatest.add_command(label='felszin' ,command= felszin, )
-teglatest.add_command(label='terfogat' ,command= terfogat, )
+teglatest.add_command(label='Felszin' ,command= felszin, )
+teglatest.add_command(label='Térfogat' ,command= terfogat, )
 menu2.config(menu=teglatest)
+
+menu3=Menubutton(menusor, text='Henger', )
+menu3.pack(side=LEFT)
+henger=Menu(menu3)
+henger.add_command(label='Felszin' ,command= hfelszin, )
+henger.add_command(label='Térfogat' ,command= hterfogat, )
+menu3.config(menu=henger)
 foablak.mainloop()
