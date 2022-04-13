@@ -19,16 +19,16 @@ def felszin():
         felszin= 2*(a*b+a*c+c*b)
         if a<=0 or b<=0 or c<=0:
             mezo4.delete(0, END)
-            mezo4. insert(0, str()+' nem lehet ')
+            mezo4. insert(0, str()+' 0 nem lehet ')
         else:
             mezo4.delete(0, END)
             mezo4. insert(0, str(felszin))
 
     abl3= Toplevel(foablak)
     abl3.title('Felszin')
-    szoveg1=Label(abl3, text='a:')
-    szoveg2=Label(abl3, text='b:')
-    szoveg3=Label(abl3, text='c:')
+    szoveg1=Label(abl3, text='a oldal (cm):')
+    szoveg2=Label(abl3, text='b oldal (cm):')
+    szoveg3=Label(abl3, text='c oldal (cm):')
     szoveg4=Label(abl3, text='Eredmény:')
     gomb1=Button(abl3, text='Szamitás', command=szam)
     mezo1= Entry(abl3)
@@ -59,15 +59,15 @@ def terfogat():
         terfogat= a*b*c
         if a<=0 or b<=0 or c<=0:
             mezo4.delete(0, END)
-            mezo4. insert(0, str()+' nem lehet ')
+            mezo4. insert(0, str()+'0 nem lehet ')
         else:
             mezo4.delete(0, END)
             mezo4. insert(0, str(felszin))
     abl3= Toplevel(foablak)
     abl3.title('Terfogat')
-    szoveg1=Label(abl3, text='a:')
-    szoveg2=Label(abl3, text='b:')
-    szoveg3=Label(abl3, text='c:')
+    szoveg1=Label(abl3, text='a oldal (cm):')
+    szoveg2=Label(abl3, text='b oldal (cm):')
+    szoveg3=Label(abl3, text='c oldal (cm):')
     szoveg4=Label(abl3, text='Eredmény:')
     gomb1=Button(abl3, text='Szamitás', command=szam)
     mezo1= Entry(abl3)
@@ -97,14 +97,14 @@ def hterfogat():
         hterfogat = round (math.pi * r * r * m, 2)
         if m<=0 or r<=0 :
             mezo4.delete(0, END)
-            mezo4. insert(0, str()+' nem lehet ')
+            mezo4. insert(0, str()+'0 nem lehet ')
         else:
             mezo4.delete(0, END)
             mezo4. insert(0, str(hterfogat))
     abl4= Toplevel(foablak)
     abl4.title('Terfogat')
-    szoveg1=Label(abl4, text='m:')
-    szoveg2=Label(abl4, text='r:')
+    szoveg1=Label(abl4, text='magaság (cm):')
+    szoveg2=Label(abl4, text='sugár (cm):')
     
     szoveg4=Label(abl4, text='Eredmény:')
     gomb1=Button(abl4, text='Szamitás', command=szam)
@@ -132,14 +132,14 @@ def hfelszin():
         hfelszin = round (2*math.pi*r*(r+m), 2)
         if m<=0 or r<=0 :
             mezo4.delete(0, END)
-            mezo4. insert(0, str()+' nem lehet ')
+            mezo4. insert(0, str()+'0 nem lehet ')
         else:
             mezo4.delete(0, END)
             mezo4. insert(0, str(hfelszin))
     abl4= Toplevel(foablak)
     abl4.title('Felszin')
-    szoveg1=Label(abl4, text='m:')
-    szoveg2=Label(abl4, text='r:')
+    szoveg1=Label(abl4, text='magaság (cm):')
+    szoveg2=Label(abl4, text='sugár (cm):')
     
     szoveg4=Label(abl4, text='Eredmény:')
     gomb1=Button(abl4, text='Szamitás', command=szam)
